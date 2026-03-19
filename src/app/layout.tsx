@@ -5,8 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AuraAI - Intelligence Reimagined",
-  description: "Harness the power of AI to transform your workflow. Built for teams who demand excellence.",
+  title: "AuraAI - Intelligence Reimagined"
 };
 
 export default function RootLayout({
