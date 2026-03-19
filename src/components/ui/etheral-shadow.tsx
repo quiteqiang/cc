@@ -45,24 +45,30 @@ export function Component({
     const turbulenceRef = useRef<SVGFETurbulenceElement>(null);
     const animationControls = useRef<AnimationPlaybackControls | null>(null);
 
-    const displacementScale = animation ? mapRange(animation.scale, 1, 100, 10, 60) : 0;
-    const duration = animation ? mapRange(animation.speed, 1, 100, 20, 2) : 10;
+    const displacementScale = animation ? mapRange(animation.scale, 1, 100, 10, 80) : 0;
+    const duration = animation ? mapRange(animation.speed, 1, 100, 15, 3) : 10;
 
     useEffect(() => {
         if (!turbulenceRef.current || !animationEnabled) return;
 
-        const baseFreqX = mapRange(animation?.scale || 50, 0, 100, 0.001, 0.003);
-        const baseFreqY = mapRange(animation?.scale || 50, 0, 100, 0.002, 0.006);
+        const baseFreqX = mapRange(animation?.scale || 50, 0, 100, 0.0005, 0.002);
+        const baseFreqY = mapRange(animation?.scale || 50, 0, 100, 0.001, 0.004);
+        const freqVariation = baseFreqX * 0.3;
 
+        let lastTime = 0;
         animationControls.current = animate(0, 1, {
             duration,
             repeat: Infinity,
-            ease: "linear",
+            repeatType: "mirror",
+            ease: "easeInOut",
             onUpdate: (progress) => {
-                if (turbulenceRef.current) {
-                    const newSeed = Math.floor(progress * 100);
-                    turbulenceRef.current.setAttribute('seed', String(newSeed));
-                }
+                if (!turbulenceRef.current) return;
+
+                const sineWave = Math.sin(progress * Math.PI * 2);
+                const newFreqX = baseFreqX + (sineWave * freqVariation * 0.5);
+                const newFreqY = baseFreqY + (Math.cos(progress * Math.PI * 2) * freqVariation * 0.3);
+
+                turbulenceRef.current.setAttribute('baseFrequency', `${newFreqX} ${newFreqY}`);
             }
         });
 
@@ -86,7 +92,7 @@ export function Component({
                 style={{
                     position: "absolute",
                     inset: -displacementScale,
-                    filter: animationEnabled ? `url(#${id}) blur(3px)` : "none"
+                    filter: animationEnabled ? `url(#${id}) blur(2px)` : "none"
                 }}
             >
                 {animationEnabled && (
@@ -95,10 +101,10 @@ export function Component({
                             <filter id={id} x="-50%" y="-50%" width="200%" height="200%">
                                 <feTurbulence
                                     ref={turbulenceRef}
-                                    type="turbulence"
-                                    baseFrequency={`${mapRange(animation?.scale || 50, 0, 100, 0.001, 0.003)},${mapRange(animation?.scale || 50, 0, 100, 0.002, 0.006)}`}
-                                    numOctaves="2"
-                                    seed="0"
+                                    type="fractalNoise"
+                                    baseFrequency={`${mapRange(animation?.scale || 50, 0, 100, 0.0005, 0.002)},${mapRange(animation?.scale || 50, 0, 100, 0.001, 0.004)}`}
+                                    numOctaves="3"
+                                    seed="1"
                                     result="turbulence"
                                 />
                                 <feDisplacementMap

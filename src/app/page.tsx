@@ -8,7 +8,7 @@ export default function LandingPage() {
       <section className="relative h-screen w-full">
         <EtherealShadow
           color="rgba(128, 128, 128, 1)"
-          animation={{ scale: 100, speed: 50 }}
+          animation={{ scale: 100, speed: 90 }}
           noise={{ opacity: 1, scale: 1.2 }}
           sizing="fill"
           className="absolute inset-0"
