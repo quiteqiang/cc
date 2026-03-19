@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(: 'npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"\"@/*\"\"')",
+      "Bash(: 'npm install framer-motion lucide-react')",
+      "Bash(: 'sleep 20 && ls -la')",
+      "Bash(: 'ls -la')",
+      "Bash(: 'echo \"\"Current directory: $\\(pwd\\)\"\" && ls -la')",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\")",
+      "Bash(: 'echo \"\"Current working directory:\"\" && pwd && ls -la')",
+      "Bash(npm install:*)",
+      "Bash(: 'sleep 30 && echo \"\"Installation complete\"\"')",
+      "Bash(npm cache:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(export NPM_CONFIG_CACHE=\"/tmp/.npm-cache\")",
+      "Bash(pkill -f npm)",
+      "Bash(export NPM_CONFIG_CACHE=\"/tmp/.npm-cache-$$\")",
+      "Bash(while pgrep:*)",
+      "Bash(do sleep:*)",
+      "Bash(done)",
+      "Bash(export NPM_CONFIG_CACHE=\"/tmp/npm-$$\")",
+      "Bash(ls:*)",
+      "Bash(npm:*)",
+      "Bash(rm -rf ~/.npm/_cacache)",
+      "Bash(export NPM_CONFIG_CACHE=/tmp/.npm-fresh)",
+      "Bash(pkill -9 -f npm)",
+      "Bash(pkill -9 -f node)",
+      "Bash(yarn install:*)",
+      "Bash(export NPM_CONFIG_CACHE=/tmp/npm-cache-fresh)",
+      "Bash(export NPM_CONFIG_FETCH_TIMEOUT=120000)",
+      "Bash(export NPM_CONFIG_FETCH_RETRIES=5)",
+      "Bash(echo Done!)",
+      "Bash(export NPM_CONFIG_CACHE=/tmp/npm-fresh-cache-$$)",
+      "Bash(find src:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000)"
+    ]
+  }
+}

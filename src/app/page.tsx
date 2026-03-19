@@ -7,9 +7,9 @@ export default function LandingPage() {
       {/* Hero Section with Ethereal Shadow Background */}
       <section className="relative h-screen w-full">
         <EtherealShadow
-          color="rgba(20, 20, 20, 0.15)"
-          animation={{ scale: 80, speed: 70 }}
-          noise={{ opacity: 0.8, scale: 1.2 }}
+          color="rgba(128, 128, 128, 1)"
+          animation={{ scale: 100, speed: 50 }}
+          noise={{ opacity: 1, scale: 1.2 }}
           sizing="fill"
           className="absolute inset-0"
         />
