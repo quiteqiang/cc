@@ -1,15 +1,15 @@
 import { Component as EtherealShadow } from "@/components/ui/etheral-shadow";
-import { ArrowRight, Sparkles, Zap, Shield, Globe } from "lucide-react";
+import { Sparkles, Zap, Shield, Globe } from "lucide-react";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero Section with Ethereal Shadow Background */}
       <section className="relative h-screen w-full">
         <EtherealShadow
-          color="rgba(0, 0, 0, 0.8)"
+          color="rgba(220, 220, 220, 0.15)"
           animation={{ scale: 100, speed: 90 }}
-          noise={{ opacity: 1, scale: 1.2 }}
+          noise={{ opacity: 0.1, scale: 100 }}
           sizing="fill"
           className="absolute inset-0"
         />
@@ -28,7 +28,7 @@ export default function LandingPage() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6">
               AI
               <br />
-              <span className="text-gray-400">PROFILE</span>
+              <span className="text-gray-500">PROFILE</span>
             </h1>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             </div>
@@ -37,14 +37,14 @@ export default function LandingPage() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center">
-            <div className="w-1 h-2 bg-gray-400 rounded-full mt-2 animate-bounce" />
+          <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
+            <div className="w-1 h-2 bg-gray-500 rounded-full mt-2 animate-bounce" />
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 lg:py-32 px-6 lg:px-12 bg-white">
+      <section id="features" className="py-24 lg:py-32 px-6 lg:px-12 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
@@ -76,7 +76,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 lg:px-12 border-t border-gray-100">
+      <footer className="py-12 px-6 lg:px-12 border-t border-gray-800">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Sparkles className="h-5 w-5" />
@@ -93,8 +93,8 @@ export default function LandingPage() {
 
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) {
   return (
-    <div className="group p-8 rounded-2xl border border-gray-100 hover:border-gray-200 transition-colors">
-      <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gray-100 transition-colors">
+    <div className="group p-8 rounded-2xl border border-gray-800 hover:border-gray-700 transition-colors">
+      <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gray-800 transition-colors">
         {icon}
       </div>
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
